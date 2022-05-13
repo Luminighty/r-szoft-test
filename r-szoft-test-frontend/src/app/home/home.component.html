@@ -1,0 +1,16 @@
+<h1>Számkitaláló</h1>
+<form [formGroup]="form" (submit)="submit()">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Játékosnév</mat-label>
+    <input
+      matInput
+      type="text"
+      required
+      name="player"
+      formControlName="player"
+    />
+    <mat-error *ngIf="player.invalid">Ez a mező kötelező</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (submit)="submit()">Új játék</button>
+</form>

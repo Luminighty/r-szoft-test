@@ -1,0 +1,28 @@
+<h1>Tippelj 1 és 100 között</h1>
+<form [formGroup]="form" (submit)="submit()">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Tipp</mat-label>
+    <input
+      matInput
+      type="number"
+      required
+      name="guess"
+      formControlName="guess"
+      min="0"
+      max="100"
+    />
+    <mat-error *ngIf="guess.invalid">
+      <div *ngIf="guess.errors?.['required']">
+        Ez a mező kötelező
+      </div>
+      <div *ngIf="guess.errors?.['min']">
+        Minimum 0
+      </div>
+      <div *ngIf="guess.errors?.['max']">
+        Maximum 100
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <button [disabled]="isOver" mat-raised-button color="primary" (submit)="submit()">Tippelés</button>
+</form>
